@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08D0D26A-DCEA-40AB-930B-BAD7A27B87A1}</ProjectGuid>
+    <ProjectGuid>{3610CD6D-2DBE-4D83-AB20-909F1835550C}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MVCTestbed</RootNamespace>
-    <AssemblyName>MVCTestbed</AssemblyName>
+    <RootNamespace>BootstrapSmashing</RootNamespace>
+    <AssemblyName>BootstrapSmashing</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -117,26 +117,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\avatar.gif" />
-    <Content Include="Content\Images\delicious.png" />
-    <Content Include="Content\Images\digg.png" />
-    <Content Include="Content\Images\facebook.png" />
-    <Content Include="Content\Images\lastfm.png" />
-    <Content Include="Content\Images\rss.png" />
-    <Content Include="Content\Images\sm-logo.gif" />
-    <Content Include="Content\Images\twitter.png" />
-    <Content Include="Content\Styles\Views\_Smashing.css">
-      <DependentUpon>_Smashing.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\Styles\Views\_Smashing.min.css">
-      <DependentUpon>_Smashing.css</DependentUpon>
-    </Content>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles\bootstrap-theme.css" />
+    <Content Include="Content\Styles\bootstrap-theme.min.css" />
+    <Content Include="Content\Styles\bootstrap.css" />
+    <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Smashing.html" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Styles\bootstrap.min.css.map" />
+    <Content Include="Content\Styles\bootstrap.css.map" />
+    <Content Include="Content\Styles\bootstrap-theme.min.css.map" />
+    <Content Include="Content\Styles\bootstrap-theme.css.map" />
+    <None Include="Content\Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Content\Scripts\bootstrap.js" />
+    <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\jquery-1.9.1.js" />
+    <Content Include="Content\Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\SmashingBootstrap.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,11 +163,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Styles\Views\_Smashing.scss" />
-    <None Include="compilerconfig.json" />
-    <None Include="compilerconfig.json.defaults">
-      <DependentUpon>compilerconfig.json</DependentUpon>
-    </None>
+    <Content Include="Content\Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -162,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
@@ -178,9 +195,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50894</DevelopmentServerPort>
+          <DevelopmentServerPort>60366</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50894/</IISUrl>
+          <IISUrl>http://localhost:60366/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
