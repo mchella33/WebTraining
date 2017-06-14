@@ -1,0 +1,51 @@
+﻿@model MatrixChallenge.Models.Matrix
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+
+
+<div class="jumbotron">
+    <h1>Matrix Calculator</h1>
+    <small>Use this calculator to calculate the size Matrices of your choice.</small>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Determine your Rows</h2>
+        <p>
+            You determine the number of rows your Matrix contains.
+        </p>
+        <form action="Index.cshtml">
+            Rows: <input type="number" name="Rows" />
+
+        </form>
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            @Html.TextBoxFor(model => model.Rows)
+            @Html.ValidationMessageFor(model => model.Rows)
+            <button type="submit">Submit</button>
+        }
+    </div>
+    <div class="col-md-4">
+        <h2>Determine your Columns</h2>
+        <p>You determine the number of columns your Matrix contains.</p>
+        
+        Columns: <input type="number" name="Columns"/>
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            @Html.TextBoxFor(model => model.Columns)
+            @Html.ValidationMessageFor(model => model.Columns)
+            <button type="submit">Submit</button>
+        }
+    </div>
+    <div class="col-md-4">
+        <h2>Let's Calculate!</h2>
+        <p>Move to the calculator and begin to enter data.</p>
+       
+    </div>
+</div>
