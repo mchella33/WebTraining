@@ -1,0 +1,19 @@
+﻿@model OnceAgain.Models.StoriesViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Stories", "Home"))
+{
+    {
+        @Html.TextBoxFor(x => Model.Story) @Html.Label("Story")
+        <br />
+
+        @Html.TextBoxFor(x => Model.Title) @Html.Label("Title")
+        <br />
+
+        <input type="submit" />
+    }
+}

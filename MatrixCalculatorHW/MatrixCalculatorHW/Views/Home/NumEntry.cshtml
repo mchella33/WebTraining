@@ -1,0 +1,23 @@
+﻿@model MatrixCalculatorHW.Models.NumEntryViewModel
+@{
+    ViewBag.Title = "NumEntry";
+}
+
+<h2>NumEntry</h2>
+
+@using (Html.BeginForm("Results", "Home"))
+{
+    for (int t = 0; t < Model.Matrices.Count; t++)
+    {
+        for (int i = 0; i < Model.Matrices[t].Mesh.Length; i++)
+        {
+            for (int j = 0; j < Model.Matrices[t].Mesh[i].Length; j++)
+            {
+                @Html.TextBoxFor(x => Model.Matrices[t].Mesh[i][j], new { @type = "number", @min = "0" })
+            }
+            <br/>
+        }
+        <br/>
+    }
+    <input type ="submit"/>
+}
