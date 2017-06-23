@@ -1,0 +1,133 @@
+﻿@model Inventory.Models.Product
+@{
+    ViewBag.Title = "Index";
+}
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+<h2>Index</h2>
+@using (Html.BeginForm("ProductList", "Home"))
+{
+    <div>
+        @Html.Label("ProductName") @Html.TextBoxFor(m => Model.ProductName, new { name = "ProductName" })
+    </div>
+    <div>
+        @Html.Label("ProductPrice") @Html.TextBoxFor(m => Model.ProductPrice, new { name = "ProductPrice" }) 
+    </div>
+    <div>
+        @Html.Label("Quantity") @Html.TextBoxFor(m => Model.Quantity, new { @type = "number", @min = "0" }) 
+    </div>
+    
+   
+    <div id="List">
+        @* List will be added here *@
+
+    </div>
+    <input type="button" id="add" value="Add"/>
+    <input type="button" id="submit" value="Submit" />
+
+
+}
+<script>
+    //defines what an item is and increments the itemid
+    var Item = function(name,price,quantity) {
+        this.Name = name;
+        this.Price = price;
+        this.Quantity = quantity;
+        //gets the highest id from the product list and increments it by 1
+        var getID = function () {
+            if (ProductList.list.length == 0) {
+                return 1;
+            }
+            var highest = 0;
+            for (var i = 0; i < ProductList.list.length; i++) {
+                var id = ProductList.list[i].ItemID;
+                if (id>=highest) {
+                    highest = id+1;
+                }
+            }
+            return highest;
+        }
+        this.ItemID = getID();
+
+    }
+
+    //stores the list and provides crud methods for it
+    var ProductList = {
+        list: [],
+        add:function(item) {
+            this.list.push(item);
+        },
+        remove: function (item) {
+            var index = this.indexOf(item);
+            this.list.splice(index, 1);
+        },
+        update:function() {
+            
+        }
+    };
+    //renders our list to the dom
+    var render = function () {
+        var list = "";
+        ProductList.list.forEach(function(item) {
+            var template = `<p>ItemID: ${item.ItemID}<br/> Item: ${item.Name}<br/> Price: ${item.Price} <br/> Quantity: ${item.Quantity}<br/></p>`;
+            list += template;
+        }); 
+        $("#List").html(list);
+    }
+
+
+    $("#add").on("click",
+        function () {
+            //gets values of the input boxes
+            var productName = $("#ProductName").val();
+            var productPrice = parseFloat($("#ProductPrice").val());
+            var quantity = parseInt($("#Quantity").val());
+            //creates items from our item constructor above
+            var item = new Item(productName, productPrice, quantity);
+            ProductList.add(item);
+            render();
+            console.log(ProductList.list);
+        });
+
+
+    $("#submit").on("click",
+        function () {
+            //sneds our product list to the server
+            $.ajax({
+                url: '@Url.Action("SubmitList")',
+                data: {
+                    List: ProductList.list //the data we are sending to the server
+                },
+                error: function (res) {
+                    //if an error happens this method is called. Currently logs the error
+                    console.log("Error", res);
+                },
+                success: function (res) {
+                    //if the request is successfull this function fires. Currently logs the result
+                    console.log("Response:", res);
+                },
+                type: 'POST'
+            });
+            //javascript will not wait for async functions to finish before moving on ^
+            console.log("Im supposed to happen after!!!");
+        });
+
+</script>
+
+
+<script>
+    function DoStuff(num, callback) {
+        var newNum = Math.pow(num, num);
+        callback(newNum);
+    }
+
+    DoStuff(5,
+        function(x) {
+            console.log(x);
+        });
+
+   
+</script>

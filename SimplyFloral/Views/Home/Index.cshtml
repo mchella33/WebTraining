@@ -1,0 +1,16 @@
+﻿@model SimplyFloral.Models.SizeViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h2>How many varieties would you like in your bouquet?</h2>
+
+@using (Html.BeginForm("ChooseVariety", "Home"))
+{
+   @Html.TextBoxFor(m=> Model.Rows, new {type="number", min="0"}) 
+
+    <input type="submit" value="Submit"/>
+    
+}

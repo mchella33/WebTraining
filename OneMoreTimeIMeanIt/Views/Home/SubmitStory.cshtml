@@ -1,0 +1,17 @@
+﻿@model OneMoreTimeIMeanIt.Models.StoryViewModel
+@{
+    ViewBag.Title = "SubmitStory";
+}
+
+<h2>SubmitStory</h2>
+
+@using (Html.BeginForm("Story", "Home"))
+{
+    @Html.TextBoxFor(x => Model.StorySubmitted) @Html.Label("Story")
+    <br/>
+    @Html.TextBoxFor(x => Model.Submitter) @Html.Label("Submitter")
+
+    <div>
+        <input type ="submit" value="Submit"/>
+    </div>
+}

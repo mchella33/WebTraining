@@ -1,0 +1,24 @@
+﻿@model CalculatorOfTheMatrix.Models.InputEntryViewModel
+@{
+    ViewBag.Title = "InputGrid";
+}
+
+<h2>InputGrid</h2>
+
+@using (Html.BeginForm("Sum", "Home"))
+{
+    for (int i = 0; i < Model.Rows; i++)
+    {
+        for (int j = 0; j < Model.Columns; j++)
+        {
+            @Html.TextBoxFor(m => m.Grid1, new { @type = "number", @min = "0" })
+            @Html.TextBoxFor(m => m.Grid2, new { @type = "number", @min = "0" })
+        }
+    }
+
+    <br/>
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+
+}

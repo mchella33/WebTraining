@@ -1,0 +1,18 @@
+﻿@model Inventory.Models.InventoryList
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>ProductList</h2>
+
+<div class="container">
+    @foreach (var product in Model.Inventory)
+    {
+
+        <p>
+            Item: @product.ProductName <br/>
+            Price: $@product.ProductPrice <br/>
+            Quantity: @product.Quantity <br/>
+    </p>
+    }
+</div>

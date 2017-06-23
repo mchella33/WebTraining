@@ -1,0 +1,17 @@
+﻿@using MakeMeABouquet.Models
+@model MakeMeABouquet.Models.NumberOfFlowers
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("CreateBouqet", "Home"))
+{
+        @:<h2>How many types of Flowers would you like in your bouquet?</h2>
+    
+        @Html.TextBoxFor(m => Model.HowMany, new { name = "HowMany" }) @Html.Label("HowMany")
+  
+        <input type="submit" value="Add" />       
+   
+}

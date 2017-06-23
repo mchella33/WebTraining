@@ -1,0 +1,17 @@
+﻿@using MakeMeABouquet.Models
+@model MakeMeABouquet.Models.Flower
+   @{
+    ViewBag.Title = "CreateBouqet";
+}
+
+<h2>CreateBouqet</h2>
+
+@using (Html.BeginForm("FinalProduct", "Home"))
+{
+   
+    @Html.TextBoxFor(m => Model.Name, new { name = "Name" }) @Html.Label("Name")
+    @Html.TextBoxFor(m => Model.Quantity, new { type = "number", name = "Quantity" }) @Html.Label("Quantity")
+
+    <input type="submit" value="Add" />
+
+}

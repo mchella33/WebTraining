@@ -1,0 +1,11 @@
+﻿@model ImInTheMatrices.Models.RowColViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("BuildMyMatrix", "Home"))
+{
+    @Html.TextBoxFor(x => Model.Columns, new { @type="number", @min="0"})
+}

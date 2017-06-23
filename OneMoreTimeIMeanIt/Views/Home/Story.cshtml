@@ -1,0 +1,13 @@
+﻿@model OneMoreTimeIMeanIt.Models.StoryListViewModel
+  
+@{
+    ViewBag.Title = "Story";
+}
+
+<h2>Story</h2>
+
+@foreach (var story in Model.Stories)
+{
+    
+    @Html.DisplayTextFor(x => Model.Stories);
+}

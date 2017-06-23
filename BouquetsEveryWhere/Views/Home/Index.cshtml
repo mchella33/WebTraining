@@ -1,0 +1,14 @@
+﻿@model BouquetsEveryWhere.Models.NumberOfTypes
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>How many types of Flowers would you like in your bouquet?</h2>
+
+@using (Html.BeginForm("MakeSelection", "Home"))
+{
+    @Html.TextBoxFor(m=> Model.Count, new {type="number", min="0"})
+
+    <input type="submit" value="Submit"/>
+}
+

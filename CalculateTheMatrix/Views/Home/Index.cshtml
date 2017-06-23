@@ -1,0 +1,17 @@
+﻿@model CalculateTheMatrix.Models.RolColViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("NumEntry", "Home"))
+{
+    @Html.TextBoxFor(x=> Model.Columns, new {@type="number", @min="0"}) @Html.Label("Columns")
+    <br/>
+    @Html.TextBoxFor(x=> Model.Rows, new {@type="number", @min="0"}) @Html.Label("Rows")
+    <br/>
+    <div>
+    <input type ="submit" value="Submit"/>
+    </div>
+}

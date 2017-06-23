@@ -1,0 +1,17 @@
+﻿@using MakeMeABouquet.Models
+@model MakeMeABouquet.Models.Bouquet
+@{
+    ViewBag.Title = "FinalProduct";
+}
+
+<h2>FinalProduct</h2>
+
+
+
+@foreach (var flower in Model.BouquetBundle)
+{
+    <p>
+        @flower.Name
+        @flower.Quantity
+    </p>
+}

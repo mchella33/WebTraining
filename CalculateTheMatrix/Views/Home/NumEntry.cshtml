@@ -1,0 +1,44 @@
+﻿@model CalculateTheMatrix.Models.NumEntryViewModel
+@{
+    ViewBag.Title = "NumEntry";
+}
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+<h2>NumEntry</h2>
+
+@using (Html.BeginForm("Answer", "Home"))
+{
+    for(int s = 0; s < Model.Matrices.Count; s++)
+    {
+        for (int i = 0; i < Model.Matrices[s].Grid.Length; i++)
+        {
+            for (int j = 0; j < Model.Matrices[s].Grid[i].Length; j++)
+            {
+                @Html.TextBoxFor(x=> Model.Matrices[s].Grid[i][j], new {@type ="number", @min="0"})
+            }
+            <br/>
+        }
+        <br />
+    }
+    @*@Html.HiddenFor(m => m.Calc)*@
+        <input type="submit" class="submit" name="Calc" value="add" />
+        <input type="submit" class="submit" name="Calc" value="multiply" />
+    
+}
+
+
+<script>
+    @*$(".submit").on("click", function () {
+        //gets the value of whatever got clicked
+        var clicked = $(this).val();
+        //gets the id of the hidden field
+        var id = "@Html.IdFor(m => m.Calc)";
+        // sets the value of the hidden field to whatever was clicked
+        $(`#${id}`).val(clicked);
+        //submits the form
+        $("form").submit();
+    })*@
+
+</script>

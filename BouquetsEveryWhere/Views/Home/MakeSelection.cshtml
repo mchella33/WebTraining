@@ -1,0 +1,16 @@
+﻿@model BouquetsEveryWhere.Models.NumberOfTypes
+@{
+    ViewBag.Title = "MakeSelection";
+}
+
+<h2>MakeSelection</h2>
+
+@using (Html.BeginForm("ChooseType", "Home"))
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        @Html.TextBoxFor(m=> Model.Count, new {name="Variety"}) @Html.Label("Variety")
+
+        <input type="submit" value="Submit"/>
+    }
+}

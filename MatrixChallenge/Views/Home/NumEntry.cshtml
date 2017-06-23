@@ -1,0 +1,51 @@
+﻿
+@model MatrixChallenge.Models.MatrixViewModel
+@{
+    ViewBag.Title = "NumEntry";
+}
+<h2>Your Matrix contains:</h2>
+<h4>Rows: @Model.Matrix1.Rows</h4>
+<h4>Columns: @Model.Matrix1.Columns</h4>
+
+<h5>Now enter the numbers you wish to add to your Matrices below.</h5>
+@using (Html.BeginForm("AddMatrices", "Home"))
+{
+    @Html.HiddenFor(m => m.Matrix1.Rows)
+    @Html.HiddenFor(m => m.Matrix1.Columns)
+    <div>
+        @{
+            for (var i = 0; i < Model.Matrix1.Rows; i++)
+            {
+
+                for (var j = 0; j < Model.Matrix1.Columns; j++)
+                {
+                    
+                }
+                <br/>
+
+            }
+        }
+        
+    </div>
+   
+    <br>
+    <div>
+        @{
+            for (var i = 0; i < Model.Matrix2.Rows; i++)
+            {
+
+                for (var j = 0; j < Model.Matrix2.Columns; j++)
+                {
+                   
+                }
+                <br/>
+
+            }
+        }
+        
+    </div>
+    <button type="submit">Submit</button>
+    
+}
+
+
